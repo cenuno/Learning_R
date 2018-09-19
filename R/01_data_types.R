@@ -28,14 +28,14 @@ library(tidyverse)
 cps_skools <-
   read_csv(file = "https://data.cityofchicago.org/api/views/8i6r-et8s/rows.csv?accessType=DOWNLOAD")
 
-# 1. What just happened? 
+# 1. What just happened? ------
 #
 #    cps_skools is now an object in the Global Environment that transforms
 #    the data from the portal into a tibble/data frame/table.
 
 class(cps_skools) # [1] "tbl_df"     "tbl"        "data.frame"
 
-# 2. What is a tibble? Are you speaking english?
+# 2. What is a tibble? Are you speaking english? -----
 #
 #    A tibble is a friendlier version of a data.frame, which is a 
 #    list of variables of the same number of rows.
@@ -48,12 +48,12 @@ cps_skools # note: isn't that friendly looking?
 
 cps_skools %>% as.data.frame() # note: isn't that non-sensical?
 
-# 3. I see text down below. What is that?
+# 3. I see text down below. What is that? ------
 #
 #    That is the console! That is where R code gets compiled from
 #    akward verbs - i.e. functions() - and returns the output.
 
-# 4. What do you mean return output? Can I store output?
+# 4. What do you mean return output? Can I store output? ------
 #
 #    The console compiles the code, but it does not store the output.
 #    Instead, you must store it by using the assignment operator: <-.
@@ -62,11 +62,13 @@ cps_skools %>% nrow() # note: the console returned 661
 
 n_row <- cps_skools %>% nrow() # note: the console returned nothing.
 
-# 5. Wait. Slow down. What the heck is %>%?
+# 5. Wait. Slow down. What the heck is %>%? --------
 #
 #    %>% is the pipe-operator. For me, it is my favorite part of the R language.
 #    You should read %>% as take from the left-hand side and apply 
 #    something from the right-hand side.
+#
+#    To create the pipe operator, simply use Ctrl+Shift+m
 #
 # cps_skools is our tibble
 # and we want to apply the nrow() function on it
@@ -76,7 +78,7 @@ cps_skools %>% nrow() # note: the console returned 661
 #    While it is uncomfortable at first, the increase in readability
 #    is incredible when you start doing data science.
 
-# 6. Hey...cps_skools and n_row is appearing on the right hand corner. Why?
+# 6. Hey...cps_skools and n_row is appearing on the right hand corner. Why? -------
 #
 #    R is an object-orientied programming language. That's nerd for
 #    saying you - and you alone - are responsible for naming objects
@@ -96,19 +98,20 @@ objects() # [1] "cps_skools" "n_row"
 cps_schools <- cps_skools
 
 # 2) remove cps_skools from the global environment
-rm(cps_skools)
+cps_skools %>% rm()
 
-# 3 check your work
+
+# 3) check your work
 objects()
 cps_schools %>% dim() # [1] 661  91
 
-# 8. I want to see the data.
+# 8. I want to see the data. ----------
 #
 #    Not a problem, take advantage of the View() function
 cps_schools %>%
   View(title = "Viewing CPS SY1617 School Profiles")
 
-# 9. Hey this looks like Excel!
+# 9. Hey this looks like Excel! -----
 #
 #    While View() offers a great way to see the data,
 #    glimpse() providers a better way to see what kinds of data
@@ -124,7 +127,7 @@ cps_schools %>% glimpse()
 #    - each variable's type (<int>) followed by
 #    - the first few values
 
-# 10. Why are data types important?
+# 10. Why are data types important? ---------
 #
 #     Because some functions only take certain types of objects!
 cps_schools %>%
@@ -135,12 +138,12 @@ cps_schools %>%
   pull(Student_Count_Low_Income) %>%
   mean() # note: but you can for those vectors which are int/numeric/double
 
-# 11. What the heck is a vector?
+# 11. What the heck is a vector? -----------
 #
 #     A vector is formal name for a variable or a column.
 #     In section 10, the variable "Is_High_School" is a character vector
-cps_schools %>%
-  pull(Is_High_School) %>%
+cps_schools %>% 
+  pull(Is_High_School) %>% 
   class()
 
 # whereas the "Student_Count_Low_Income" column is an integer vector
@@ -148,7 +151,7 @@ cps_schools %>%
   pull(Student_Count_Low_Income) %>%
   class()
 
-# 12. So can you count character vectors?
+# 12. So can you count character vectors? -----
 #
 #     Yes you can.
 cps_schools %>%
