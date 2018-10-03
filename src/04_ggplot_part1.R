@@ -17,7 +17,14 @@ df <- readRDS(here("raw_data", "cps_sy1617_school_profiles.rds"))
 ada.overall.counts <- 
   df %>%
   count(ADA_Accessible, Overall_Rating) %>%
+  # change Inability to Rate to Unable to Rate
+  mutate(Overall_Rating = if_else(Overall_Rating == "Inability to Rate"
+                                  , "Unable to Rate"
+                                  , Overall_Rating)) %>%
   group_by(ADA_Accessible) %>%
+  # for each group of ADA_Accessible values
+  # calculate the sum of n values
+  # and for each n, calculate its percentage from total_n
   mutate(total_n = sum(n), pct = n / total_n) %>%
   ungroup() %>%
   # here we have to enforce order with this variable
@@ -27,7 +34,7 @@ ada.overall.counts <-
                                               , "Level 2+"
                                               , "Level 2"
                                               , "Level 3"
-                                              , "Inability to Rate")))
+                                              , "Unable to Rate")))
 
 # 2. visualizing this data frame requires us to know a few things ----
 # * what's the y-axis?
@@ -71,6 +78,9 @@ p +
 # how do we add labels? ----
 p +
   geom_col(position = "dodge") +
+  # these values come from the CPS school profiles website
+  # see the 'School Rating' question mark
+  # https://schoolinfo.cps.edu/schoolprofile/schooldetails.aspx?SchoolId=609864
   scale_fill_manual(values = c("#709d4d", "#a0ce66"
                                , "#fec325", "#e03526"
                                , "#801113", "#cccccc")) +
