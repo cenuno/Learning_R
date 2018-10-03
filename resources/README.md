@@ -1,4 +1,4 @@
-# Resources
+# resources
 
 This folder will store resources to help expose folks to the material though a variety of slide decks, blog posts, and other relevant examples.
 

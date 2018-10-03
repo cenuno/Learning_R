@@ -6,8 +6,10 @@ A repository that teaches R to my fellow Urban Lab colleagues.
 
 | **Folder Name** | **Description** |
 | :-------------: | :-------------: |
-| `R`             | This is where all `.R` scripts will be held that are covered in class are stored. |
-| `Resources`        | This folder will store resources to help expose folks to the material though a variety of slide decks, blog posts, and other relevant examples. |
+| `src`             | This is where all `.R` scripts will be held that are covered in class are stored. |
+| `resources`        | This folder will store resources to help expose folks to the material though a variety of slide decks, blog posts, and other relevant examples. |
+| `raw_data` | This is where all raw data will be stored. |
+| `write_data` | This is were all manipulated data will be stored. |
 
 ## Installing R, Rstudio and Tex
 

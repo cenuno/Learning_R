@@ -94,7 +94,7 @@ df %>%
 # here, we see that every value of `ADA_Accessible`
 # contains at least one value in `Rating_Statement`
 df %>%
-  count(ADA_Accessible, Overall_Rating) %>%
+  count(ADA_Accessible, Overall_Rating) 
   View("ADA Accessibility & Overall Rating, SY1617")
 
 # 4. But what if we were interested in doing group calculations?
@@ -132,9 +132,10 @@ ada.overall.counts <-
 
 # export results -----
 ExportXLSX(named.list = list("ADA Counts by Rating" = ada.overall.counts)
+           , desired.file.path = here("write_data")
            , name.of.file = "ada_counts.xlsx")
 
-# view results
-openXL("ada_counts.xlsx")
+# view results -----
+openXL(here("write_data", "ada_counts.xlsx"))
 
 # end of script #
