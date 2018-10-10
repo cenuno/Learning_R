@@ -1,7 +1,7 @@
 #
 # Author:   Cristian E. Nuno
-# Purpose:  Introduction to ggplot2, part 1
-# Date:     October 3, 2018
+# Purpose:  Introduction to ggplot2, part 2
+# Date:     October 10, 2018
 #
 
 # install necessary packcages -----
