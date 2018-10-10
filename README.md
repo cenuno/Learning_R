@@ -25,8 +25,9 @@ To ensure you can follow along, please install the following packages:
 
 ```R
 # install necessary packages
-install.packages(pkgs = c("broom", , "formattable", "here"
-                          , "openxlsx", "RCurl", "rgdal", "tidyverse"))
+install.packages(pkgs = c("broom", "formattable", "here"
+                          , "openxlsx", "RCurl", "rgdal"
+                          , "tidyverse"))
 
 # end of script #
 ```
