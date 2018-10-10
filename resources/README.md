@@ -16,4 +16,3 @@ There are slides I put together to help teach the material.
 | Markdown | [Adam Pritchard's markdown cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) |
 | Git | <ul><li>Atlassian's [git tutorial](https://www.atlassian.com/git/tutorials/learn-git-with-bitbucket-cloud) and [git workflow blog](https://www.atlassian.com/blog/git/simple-git-workflow-simple)</li><li> Jaseem Abid's [list of git tutorials](https://gist.github.com/jaseemabid/1321592)</li></ul> |
 
-*Last updated: October 3, 2018*
